@@ -14,6 +14,7 @@ let shapeBarray = [];
 let shapeCarray = [];
 let shapeDarray = [];
 
+let sketchStarted = false;
 
 function setup() {
   createCanvas(400, 400);
@@ -57,27 +58,36 @@ function setup() {
   black = color(50);
   blush = color(255, 146, 136);
   white = color(255, 255, 255);
-  
+
   bgBlue = color(114, 211, 254);
   bg1 = color(164, 207, 180); //green
   bg2 = color(224, 187, 227); //purple
   bg3 = color(238, 185, 163); //orange
   bg4 = color(243, 176, 194); //pink
-  
+
   shapeAcolor = color(224, 255, 222); //green
   shapeBcolor = color(255, 254, 222); //yellow
   shapeCcolor = color(255, 222, 241); //pink
   shapeDcolor = color(199, 255, 253); //lightblue
 
   //audio input
+  createButton("Start").mousePressed(startSketch);
+
+}
+
+
+function startSketch(){
   mic = new p5.AudioIn();
   mic.start();
   micLevel = mic.getLevel();
 
+  sketchStarted = true;
 }
 
-function draw() {
 
+
+function draw() {
+  if(sketchStarted){
   //react to audio
   circlesize = map(mic.getLevel(), 0, 0.06, width * 0.02, width * 0.04, [withinBounds]);
   squaresize = map(mic.getLevel(), 0, 0.04, width * 0.2, width * 0.9, [withinBounds]);
@@ -119,6 +129,7 @@ function draw() {
   RightHighlights(circlesize);
   Hair();
 
+}
 }
 
 function Background() {
