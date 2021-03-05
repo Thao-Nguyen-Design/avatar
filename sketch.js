@@ -80,10 +80,8 @@ function startSketch(){
   mic = new p5.AudioIn();
   mic.start();
   micLevel = mic.getLevel();
-
   sketchStarted = true;
 }
-
 
 
 function draw() {
