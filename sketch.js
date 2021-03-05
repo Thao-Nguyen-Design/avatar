@@ -24,6 +24,11 @@ function setup() {
   angleMode(DEGREES);
   frameRate(90);
 
+  let button = createButton("Start").mousePressed(startSketch);
+  // button.position(width/2, height/2);
+  button.size(60, 35);
+  button.style("font-size", "18px");
+
 
   for (let i = 0; i <= 3; i++) {
     shapeAarray[i] = new ShapeA(random(1, 11) * width * 0.1,
@@ -72,7 +77,6 @@ function setup() {
   shapeDcolor = color(199, 255, 253); //lightblue
 
   //audio input
-  createButton("Start").mousePressed(startSketch);
 
 }
 
