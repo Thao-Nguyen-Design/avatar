@@ -77,9 +77,10 @@ function setup() {
 
 
 function startSketch(){
+  getAudioContext().resume()
+  sketchStarted = true;
   mic = new p5.AudioIn();
   mic.start();
-  sketchStarted = true;
 }
 
 
@@ -87,6 +88,7 @@ function draw() {
   if(sketchStarted){
   micLevel = mic.getLevel();
   //react to audio
+
   circlesize = map(mic.getLevel(), 0, 0.06, width * 0.02, width * 0.04, [withinBounds]);
   squaresize = map(mic.getLevel(), 0, 0.04, width * 0.2, width * 0.9, [withinBounds]);
 
@@ -126,6 +128,7 @@ function draw() {
   RightHighlights(circlesize);
   Hair();
 }
+
 }
 
 function Background() {

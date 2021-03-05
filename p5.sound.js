@@ -1,4 +1,4 @@
-/** [p5.sound]  Version: 1.0.0 - 2021-02-24 */ 
+/** [p5.sound]  Version: 1.0.0 - 2021-02-24 */
  /**
  *  <p>p5.sound extends p5 with <a href="http://caniuse.com/audio-api"
  *  target="_blank">Web Audio</a> functionality including audio input,
