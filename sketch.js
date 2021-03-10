@@ -81,7 +81,7 @@ function setup() {
 }
 
 
-function startSketch(){
+function startSketch() {
   sketchStarted = true;
   mic = new p5.AudioIn();
   mic.start();
@@ -91,49 +91,49 @@ function startSketch(){
 function draw() {
   getAudioContext().resume()
 
-  if(sketchStarted){
-  micLevel = mic.getLevel();
-  //react to audio
-  circlesize = map(mic.getLevel(), 0, 0.06, width * 0.02, width * 0.04, [withinBounds]);
-  squaresize = map(mic.getLevel(), 0, 0.04, width * 0.2, width * 0.9, [withinBounds]);
+  if (sketchStarted) {
+    micLevel = mic.getLevel();
+    //react to audio
+    circlesize = map(mic.getLevel(), 0, 0.06, width * 0.02, width * 0.04, [withinBounds]);
+    squaresize = map(mic.getLevel(), 0, 0.04, width * 0.2, width * 0.9, [withinBounds]);
 
-  Background();
+    Background();
 
-  for (i = 0; i < shapeAarray.length; i++) {
-    shapeAarray[i].display();
-    shapeAarray[i].move();
+    for (i = 0; i < shapeAarray.length; i++) {
+      shapeAarray[i].display();
+      shapeAarray[i].move();
+    }
+
+
+    for (i = 0; i < shapeBarray.length; i++) {
+      shapeBarray[i].display();
+      shapeBarray[i].move();
+    }
+
+
+    for (i = 0; i < shapeCarray.length; i++) {
+      shapeCarray[i].display();
+      shapeCarray[i].move();
+    }
+
+
+    for (i = 0; i < shapeDarray.length; i++) {
+      shapeDarray[i].display();
+      shapeDarray[i].move();
+    }
+
+
+    BackSquare(squaresize);
+    Face();
+    Blush();
+    Eyes();
+    Glasses();
+    Nose();
+    LeftHighlights(circlesize);
+    RightHighlights(circlesize);
+    Hair();
+    // }
   }
-
-
-  for (i = 0; i < shapeBarray.length; i++) {
-    shapeBarray[i].display();
-    shapeBarray[i].move();
-  }
-
-
-  for (i = 0; i < shapeCarray.length; i++) {
-    shapeCarray[i].display();
-    shapeCarray[i].move();
-  }
-
-
-  for (i = 0; i < shapeDarray.length; i++) {
-    shapeDarray[i].display();
-    shapeDarray[i].move();
-  }
-
-
-  BackSquare(squaresize);
-  Face();
-  Blush();
-  Eyes();
-  Glasses();
-  Nose();
-  LeftHighlights(circlesize);
-  RightHighlights(circlesize);
-  Hair();
-// }
-}
 }
 
 function Background() {
